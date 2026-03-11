@@ -235,7 +235,6 @@ export const treatmentData: TreatmentData = {
               activeSubstance: "Ser fiziologic 0.9%",
               dose: "1 puf / nara",
               details: "Ser fiziologic 0.9% pentru igiena nazala zilnica.",
-              waitAfter: 5,
             },
             {
               name: "NASONEX 50\u03bcg/doza",
@@ -307,30 +306,30 @@ export const treatmentData: TreatmentData = {
       effect: "Senzatie de arsura/uscaciune nazala, stranut, cefalee (rar), congestie rebound",
       risk: "scazut",
       details:
-        "Concentratia de 0.05% este cea pentru copii (2-12 ani). Limitat strict la 5 zile. Nu depasiti NICIODATA 5 zile — folosirea prelungita poate duce la dependenta nazala.",
+        "Concentratia de 0.05% este cea pentru copii (2-12 ani). Limitat strict la 5 zile. Nu depasiti NICIODATA 5 zile — folosirea prelungita poate duce la dependenta nazala si atrofie a mucoasei.",
     },
     {
       medication: "Biorinil — Betametazona + Tetrizolina (10 zile)",
       effect:
-        "Iritatie nazala, uscaciune, rebound congestiv, efecte corticosteroidice (foarte putin probabile la doze mici)",
+        "Iritatie nazala, uscaciune, rebound congestiv, dependenta nazala la utilizare prelungita, efecte corticosteroidice (foarte putin probabile la doze mici)",
       risk: "mediu",
       details:
-        "Prospectul oficial ANM indica: 'Utilizarea acestui medicament la copiii cu varsta sub 12 ani nu este recomandata.' Totusi, medicii ORL il prescriu frecvent off-label la copii pe perioade scurte si doze reduse. Respectati STRICT cele 10 zile prescrise.",
+        "Prospectul oficial ANM indica: 'Utilizarea acestui medicament la copiii cu varsta sub 12 ani nu este recomandata.' Totusi, medicii ORL il prescriu frecvent off-label la copii pe perioade scurte si doze reduse. Respectati STRICT cele 10 zile prescrise. Daca apare sangerare sau iritatie severa, opriti si contactati doctorul.",
     },
     {
       medication: "Colargol 0.5% — Argint Coloidal (10 zile)",
-      effect: "Iritatie locala minora, pateaza hainele",
+      effect: "Iritatie locala minora, pateaza hainele, argiroza (extrem de rar la utilizare scurta)",
       risk: "scazut",
       details:
-        "Concentratie mica (0.5%), utilizare pe termen scurt (10 zile). Antiseptic clasic folosit in ORL pediatric. Se pastreaza la frigider. Agitati bine inainte de utilizare.",
+        "Concentratie mica (0.5%), utilizare pe termen scurt (10 zile). Antiseptic clasic folosit in ORL pediatric. Se pastreaza la frigider. Agitati bine inainte de utilizare. Argiroza (colorarea gri-albastruie a pielii) este raportata doar la utilizare indelungata/sistemica, nu la 10 zile topic.",
     },
     {
       medication: "Nasonex — Mometazona Furoat (60 zile)",
       effect:
-        "Epistaxis 5-8%, cefalee 3%, iritatie nazala 2%, incetinirea cresterii (monitorizare)",
+        "Epistaxis 5-8%, cefalee 3%, iritatie nazala 2%, incetinirea cresterii (monitorizare), foarte rar: tulburari comportamentale/psihologice, presiune intraoculara crescuta",
       risk: "mediu",
       details:
-        "Aprobat pentru copii de 3+ ani pentru rinita alergica. La doza de 1 puf/nara/zi = 100μg total, riscurile sunt mici. Durata de 60 zile necesita monitorizare. Opriti temporar daca apare sangerare nazala. Daca raceste, opriti pe durata racelii. La control (3 luni), medicul va evalua daca se continua.",
+        "Aprobat pentru copii de 3+ ani pentru rinita alergica. La doza de 1 puf/nara/zi = 100μg total, riscurile sunt mici. Durata de 60 zile necesita monitorizare. Opriti temporar daca apare sangerare nazala. Daca raceste, opriti pe durata racelii. Foarte rar pot aparea modificari comportamentale (hiperactivitate, tulburari de somn) si cresterea presiunii intraoculare. La control (3 luni), medicul va evalua daca se continua.",
     },
     {
       medication: "Rinodep Spray Dr.Phyto (2 saptamani)",
@@ -341,10 +340,10 @@ export const treatmentData: TreatmentData = {
     },
     {
       medication: "Inflamasol Dr.Phyto (oral, 3 luni)",
-      effect: "Disconfort gastric usor (rar)",
+      effect: "Disconfort gastric usor (rar), posibila alergie la bromelaina (derivat din ananas)",
       risk: "scazut",
       details:
-        "Solutie orala cu Lactobacillus acidophilus, bromelaina si saruri de magneziu. Produs fitoterapeutic cu rol antiinflamator si de echilibrare a florei intestinale. In general foarte bine tolerat la copii.",
+        "Solutie orala cu Lactobacillus acidophilus, bromelaina (enzima proteolitica din ananas — atentie la alergie la ananas!) si saruri de magneziu. Produs fitoterapeutic cu rol antiinflamator si de echilibrare a florei intestinale. In general foarte bine tolerat la copii.",
     },
     {
       medication: "Moller + Vigantol — Vitamina D & Omega 3 (permanent)",

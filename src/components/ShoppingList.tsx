@@ -55,8 +55,8 @@ const shoppingData: PhaseShoppingList[] = [
         details: "Antibiotic topic intranazal – 1 picatura/nara, 10 zile total (Faza 1+2). Pe reteta.",
         priceValue: 36,
         pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/gentamicina-sulfat-3-mgml-picaturi-oftalmice-solutie-10-ml-epico-med-p316553", price: "~18 lei/fl" },
-          { name: "Dr.Max", url: "https://www.drmax.ro/gentamicin-sulphate-sol-oft-fl-10ml-eipico", price: "~18 lei/fl" },
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/gentamicina-sulfat-picaturi-oftalmice-solutie-8-mgml-10-ml-epico-med-p316554", price: "~18 lei/fl" },
+          { name: "Dr.Max", url: "https://www.drmax.ro/gentamicina-sulfat-8-mg-ml-picaturi-oftalmice-solutie-10-ml-eipico", price: "~18 lei/fl" },
         ],
       },
     ],
@@ -97,6 +97,13 @@ const shoppingData: PhaseShoppingList[] = [
     phaseTitle: "Faza 3 — Corticoid + Antiseptic (Zilele 11-20)",
     color: "#059669",
     items: [
+      {
+        id: "f3-rinodep",
+        name: "Rinodep Spray Dr.Phyto",
+        details: "Se continua de la Faza 1 (pana se termina ~ziua 14)",
+        priceValue: 0,
+        pharmacies: [],
+      },
       {
         id: "f3-tonimer",
         name: "Tonimer / Physiomer ser fiziologic 0.9% spray nazal",
@@ -158,7 +165,7 @@ const permanentItems: ShoppingItem[] = [
   {
     id: "perm-inflamasol",
     name: "Inflamasol solutie orala (10 flacoane, Dr.Phyto)",
-    details: "1/2 flacon/zi, 10 zile/luna, 3 luni. Total 15 flacoane (~1.5 cutii/luna x 3 luni)",
+    details: "1/2 flacon/zi, 10 zile/luna, 3 luni. Total 15 flacoane (~0.5 cutii/luna x 3 luni = 1.5 cutii total)",
     priceValue: 99.75,
     pharmacies: [
       { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/probiotice-prebiotice-si-simbiotice/inflamasol-solutie-orala-10ml-x-10-dr-phyto-p391211", price: "~66.50 lei/cutie" },
@@ -169,10 +176,10 @@ const permanentItems: ShoppingItem[] = [
     id: "perm-mollers",
     name: "Moller's Omega-3 ulei ficat de cod copii (250ml)",
     details: "5 ml/zi (400 UI vit D) – permanent",
-    priceValue: 66.15,
+    priceValue: 73.5,
     pharmacies: [
-      { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/sistem-nervos/memorie-si-concentrare-copii/omega-3-ulei-ficat-de-cod-cu-aroma-de-tutti-frutti-pentru-copii-250-ml-mollers-p323656", price: "~66.15 lei" },
-      { name: "Dr.Max", url: "https://www.drmax.ro/moller-s-cod-liver-oil-omega-3-aroma-tutti-frutti-250-ml-orkla-health", price: "~66.15 lei" },
+      { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/sistem-nervos/memorie-si-concentrare-copii/omega-3-ulei-ficat-de-cod-cu-aroma-de-tutti-frutti-pentru-copii-250-ml-mollers-p323656", price: "~73.50 lei" },
+      { name: "Dr.Max", url: "https://www.drmax.ro/moller-s-cod-liver-oil-omega-3-aroma-tutti-frutti-250-ml-orkla-health", price: "~73.50 lei" },
     ],
   },
   {
@@ -388,7 +395,7 @@ export default function ShoppingList() {
               </span>
             </div>
             <p className="mt-1 text-xs" style={{ color: "#9ca3af" }}>
-              Include toate medicamentele + prima luna de Inflamasol si suplimente. Inflamasol se recumpara lunar (~66.50 lei/cutie, total ~200 lei pe 3 luni).
+              Include toate medicamentele + Inflamasol (1.5 cutii pt 3 luni) si suplimente. Inflamasol: ~66.50 lei/cutie, total ~100 lei pe 3 luni.
             </p>
           </div>
         </div>
