@@ -7,22 +7,24 @@ import MedStep from "./MedStep";
 interface PhaseCardProps {
   phase: Phase;
   isCurrentPhase: boolean;
+  isDefaultOpen: boolean;
   currentDay: number | null;
 }
 
 export default function PhaseCard({
   phase,
   isCurrentPhase,
+  isDefaultOpen,
   currentDay,
 }: PhaseCardProps) {
-  const [isOpen, setIsOpen] = useState(isCurrentPhase);
+  const [isOpen, setIsOpen] = useState(isCurrentPhase || isDefaultOpen);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isCurrentPhase) setIsOpen(true);
   }, [isCurrentPhase]);
 
-  const dayLabel = `Zilele ${phase.dayRange[0]} – ${phase.dayRange[1]}`;
+  const dayLabel = `Zilele ${phase.dayRange[0]}–${phase.dayRange[1]} · ${phase.prescriptions}`;
   const isActive =
     currentDay !== null &&
     currentDay >= phase.dayRange[0] &&

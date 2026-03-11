@@ -7,8 +7,9 @@ interface SideEffectCardProps {
 }
 
 const riskColors: Record<string, { bg: string; text: string; label: string }> = {
-  scazut: { bg: "#f0fdf4", text: "#166534", label: "Risc scazut" },
-  mediu: { bg: "#fffbeb", text: "#92400e", label: "Risc mediu" },
+  fara: { bg: "#f0fdf4", text: "#166534", label: "Fara risc" },
+  scazut: { bg: "#dcfce7", text: "#166534", label: "Risc scazut" },
+  mediu: { bg: "#fef3c7", text: "#92400e", label: "Risc mediu" },
   ridicat: { bg: "#fef2f2", text: "#991b1b", label: "Risc ridicat" },
 };
 

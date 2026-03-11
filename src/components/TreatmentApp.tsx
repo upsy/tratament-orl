@@ -60,6 +60,7 @@ export default function TreatmentApp() {
             key={phase.id}
             phase={phase}
             isCurrentPhase={currentPhase?.id === phase.id}
+            isDefaultOpen={!startDateStr && phase.id === 1}
             currentDay={currentDay}
           />
         ))}

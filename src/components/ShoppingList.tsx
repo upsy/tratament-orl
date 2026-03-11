@@ -13,7 +13,7 @@ interface ShoppingItem {
   id: string;
   name: string;
   details: string;
-  priceValue: number; // numeric price in lei for totals (0 = already bought in prev phase)
+  priceValue: number;
   pharmacies: PharmacyLink[];
 }
 
@@ -27,23 +27,22 @@ interface PhaseShoppingList {
 const shoppingData: PhaseShoppingList[] = [
   {
     phaseId: 1,
-    phaseTitle: "Faza 1 – Decongestionare (Zilele 1-5)",
-    color: "#3b82f6",
+    phaseTitle: "Faza 1 — Antibioterapie + Decongestionare (Zilele 1-5)",
+    color: "#3a7ca5",
     items: [
       {
-        id: "f1-ser",
-        name: "Apa de mare spray nazal copii (ex: Humer 150ml)",
-        details: "Pt lavaj nazal, 2-3 pufuri/nara",
-        priceValue: 50,
+        id: "f1-rinodep",
+        name: "Rinodep Spray Dr.Phyto (30ml)",
+        details: "Spray nazal fitoextracte – 1 puf/nara, 2 saptamani",
+        priceValue: 25,
         pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/sistemul-respirator/solutii-nazale/spray-nazal-cu-apa-de-mare-pentru-copii-150-ml-humer-p315973", price: "~50 lei" },
-          { name: "Dr.Max", url: "https://www.drmax.ro/humer-spray-apa-de-mare-150-ml-urgo", price: "~50 lei" },
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/brand/dr-phyto", price: "~25 lei" },
         ],
       },
       {
         id: "f1-efedrin",
         name: "Ser Efedrinat 0.5% picaturi nazale (10ml, Tis)",
-        details: "Decongestionant nazal – max 5 zile!",
+        details: "Decongestionant nazal – 1 picatura/nara, max 5 zile",
         priceValue: 7.5,
         pharmacies: [
           { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/otc-new/sistemul-respirator/solutii-nazale/ser-efedrinat-picaturi-nazale-0-5-10-ml-tis-farmaceutic-p315855", price: "~7.50 lei" },
@@ -51,9 +50,33 @@ const shoppingData: PhaseShoppingList[] = [
         ],
       },
       {
-        id: "f1-xilo",
-        name: "SAU Xilometazolina 0.05% copii (ex: Olynth / Snup / Rhinxyl)",
-        details: "Alternativa la Ser Efedrinat – max 5 zile!",
+        id: "f1-genta",
+        name: "Gentamicina sulfat EPICO 8mg/ml picaturi (10ml) x2 flacoane",
+        details: "Antibiotic topic intranazal – 1 picatura/nara, 10 zile total (Faza 1+2). Pe reteta.",
+        priceValue: 36,
+        pharmacies: [
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/gentamicina-sulfat-3-mgml-picaturi-oftalmice-solutie-10-ml-epico-med-p316553", price: "~18 lei/fl" },
+          { name: "Dr.Max", url: "https://www.drmax.ro/gentamicin-sulphate-sol-oft-fl-10ml-eipico", price: "~18 lei/fl" },
+        ],
+      },
+    ],
+  },
+  {
+    phaseId: 2,
+    phaseTitle: "Faza 2 — Schimbare Decongestionant (Zilele 6-10)",
+    color: "#d97706",
+    items: [
+      {
+        id: "f2-rinodep",
+        name: "Rinodep Spray Dr.Phyto",
+        details: "Se continua de la Faza 1",
+        priceValue: 0,
+        pharmacies: [],
+      },
+      {
+        id: "f2-xilo",
+        name: "Olynth / Nasic / Maresyl 0.05% spray nazal copii",
+        details: "Inlocuieste Ser Efedrinat de la ziua 6 – 1 puf/nara, max 5 zile",
         priceValue: 16,
         pharmacies: [
           { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-otc/sistemul-respirator/solutii-nazale/olynth-spray-nazal-pentru-copii-0-5-mg-10-ml-johnson-johnson-p325164", price: "~16 lei" },
@@ -61,99 +84,71 @@ const shoppingData: PhaseShoppingList[] = [
         ],
       },
       {
-        id: "f1-genta",
-        name: "Gentamicina sulfat picaturi 3mg/ml (10ml, Eipico)",
-        details: "Antibiotic topic – se elibereaza pe reteta",
-        priceValue: 18,
-        pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/gentamicina-sulfat-3-mgml-picaturi-oftalmice-solutie-10-ml-epico-med-p316553", price: "~18 lei" },
-          { name: "Dr.Max", url: "https://www.drmax.ro/gentamicin-sulphate-sol-oft-fl-10ml-eipico", price: "~18 lei" },
-        ],
-      },
-    ],
-  },
-  {
-    phaseId: 2,
-    phaseTitle: "Faza 2 – Tratament antibiotic local (Zilele 6-10)",
-    color: "#f59e0b",
-    items: [
-      {
-        id: "f2-ser",
-        name: "Apa de mare spray nazal copii",
-        details: "Se continua de la Faza 1",
-        priceValue: 0,
-        pharmacies: [],
-      },
-      {
         id: "f2-genta",
-        name: "Gentamicina sulfat picaturi",
-        details: "Se continua de la Faza 1",
+        name: "Gentamicina sulfat EPICO",
+        details: "Se continua de la Faza 1 (pana la ziua 10)",
         priceValue: 0,
         pharmacies: [],
-      },
-      {
-        id: "f2-biorinil",
-        name: "Biorinil spray nazal (10ml, Thea)",
-        details: "Antibiotic + antiinflamator – se elibereaza pe reteta",
-        priceValue: 59.95,
-        pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/biorinil-0-5-mg1-mg-ml-spray-nazal-suspensie-10-ml-thea-p346979", price: "~59.95 lei" },
-          { name: "Dr.Max", url: "https://www.drmax.ro/biorinil-0-5-mg-1-mg-ml-spray-nazal-10-ml-thea", price: "~59.95 lei" },
-        ],
       },
     ],
   },
   {
     phaseId: 3,
-    phaseTitle: "Faza 3 – Antiseptic + cortizonic (Zilele 11-20)",
-    color: "#22c55e",
+    phaseTitle: "Faza 3 — Corticoid + Antiseptic (Zilele 11-20)",
+    color: "#059669",
     items: [
       {
-        id: "f3-ser",
-        name: "Apa de mare spray nazal copii",
-        details: "Se continua",
-        priceValue: 0,
-        pharmacies: [],
-      },
-      {
-        id: "f3-colargol",
-        name: "Colargol 0.5% solutie (10ml, Renans)",
-        details: "Antiseptic nazal – argint coloidal",
-        priceValue: 11,
+        id: "f3-tonimer",
+        name: "Tonimer / Physiomer ser fiziologic 0.9% spray nazal",
+        details: "Inlocuieste Rinodep cand se termina (~ziua 14)",
+        priceValue: 30,
         pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/ingrijire-personala/servetele-si-igienizanti/igienizanti-maini/colargol-argint-coloidal-0-5-solutie-10-ml-renans-p358482", price: "~11 lei" },
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/sistemul-respirator/solutii-nazale/spray-nazal-cu-apa-de-mare-pentru-copii-150-ml-humer-p315973", price: "~30-50 lei" },
+          { name: "Dr.Max", url: "https://www.drmax.ro/humer-spray-apa-de-mare-150-ml-urgo", price: "~30-50 lei" },
         ],
       },
       {
-        id: "f3-nasonex",
-        name: "Nasonex 50mcg spray nazal (140 doze, MSD)",
-        details: "Corticosteroid nazal – se elibereaza pe reteta",
-        priceValue: 30.97,
+        id: "f3-biorinil",
+        name: "Biorinil spray nazal (10ml, Thea) x2 flacoane",
+        details: "Corticosteroid + decongestionant – 1 puf/nara, 10 zile. Pe reteta.",
+        priceValue: 119.9,
         pharmacies: [
-          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/nasonex-50-mcg-spray-nazal-suspensie-msd-p343204", price: "~30.97 lei" },
-          { name: "Dr.Max", url: "https://www.drmax.ro/nasonex-spray-naz-50mcg-doza-140doze-schering-p", price: "~30.97 lei" },
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/biorinil-0-5-mg1-mg-ml-spray-nazal-suspensie-10-ml-thea-p346979", price: "~59.95 lei/fl" },
+          { name: "Dr.Max", url: "https://www.drmax.ro/biorinil-0-5-mg-1-mg-ml-spray-nazal-10-ml-thea", price: "~59.95 lei/fl" },
+        ],
+      },
+      {
+        id: "f3-colargol",
+        name: "Colargol 0.5% solutie nazala (10ml, Renans)",
+        details: "Antiseptic nazal – 1 picatura/nara, 10 zile. Se pastreaza la FRIGIDER!",
+        priceValue: 11,
+        pharmacies: [
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/ingrijire-personala/servetele-si-igienizanti/igienizanti-maini/colargol-argint-coloidal-0-5-solutie-10-ml-renans-p358482", price: "~11 lei" },
         ],
       },
     ],
   },
   {
     phaseId: 4,
-    phaseTitle: "Faza 4 – Intretinere corticoida (Zilele 21-50)",
-    color: "#8b5cf6",
+    phaseTitle: "Faza 4 — Intretinere cu Nasonex (Zilele 21-50+)",
+    color: "#7c3aed",
     items: [
       {
-        id: "f4-ser",
-        name: "Apa de mare spray nazal copii",
-        details: "Se continua",
+        id: "f4-tonimer",
+        name: "Tonimer / Physiomer ser fiziologic 0.9%",
+        details: "Se continua de la Faza 3",
         priceValue: 0,
         pharmacies: [],
       },
       {
         id: "f4-nasonex",
-        name: "Nasonex 50mcg spray nazal",
-        details: "Se continua de la Faza 3",
-        priceValue: 0,
-        pharmacies: [],
+        name: "Nasonex 50mcg spray nazal (140 doze, MSD) x3 flacoane",
+        details: "Corticosteroid nazal – 1 puf/nara/zi, 60 zile total. Pe reteta.",
+        priceValue: 92.91,
+        pharmacies: [
+          { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/nasonex-50-mcg-spray-nazal-suspensie-msd-p343204", price: "~30.97 lei/fl" },
+          { name: "Dr.Max", url: "https://www.drmax.ro/nasonex-spray-naz-50mcg-doza-140doze-schering-p", price: "~30.97 lei/fl" },
+        ],
       },
     ],
   },
@@ -163,17 +158,17 @@ const permanentItems: ShoppingItem[] = [
   {
     id: "perm-inflamasol",
     name: "Inflamasol solutie orala (10 flacoane, Dr.Phyto)",
-    details: "1/2 flacon/zi, 10 zile/luna, 3 luni (nevoie ~1.5 cutii/luna x 3 luni)",
-    priceValue: 66.5,
+    details: "1/2 flacon/zi, 10 zile/luna, 3 luni. Total 15 flacoane (~1.5 cutii/luna x 3 luni)",
+    priceValue: 99.75,
     pharmacies: [
-      { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/probiotice-prebiotice-si-simbiotice/inflamasol-solutie-orala-10ml-x-10-dr-phyto-p391211", price: "~66.50 lei" },
-      { name: "Dr.Max", url: "https://www.drmax.ro/inflamasol-solutie-orala-10-flacoane-dr-phyto", price: "~66.50 lei" },
+      { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/digestie/probiotice-prebiotice-si-simbiotice/inflamasol-solutie-orala-10ml-x-10-dr-phyto-p391211", price: "~66.50 lei/cutie" },
+      { name: "Dr.Max", url: "https://www.drmax.ro/inflamasol-solutie-orala-10-flacoane-dr-phyto", price: "~66.50 lei/cutie" },
     ],
   },
   {
     id: "perm-mollers",
     name: "Moller's Omega-3 ulei ficat de cod copii (250ml)",
-    details: "1 lingurita/zi – permanent",
+    details: "5 ml/zi (400 UI vit D) – permanent",
     priceValue: 66.15,
     pharmacies: [
       { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/vitamine-si-suplimente/sistem-nervos/memorie-si-concentrare-copii/omega-3-ulei-ficat-de-cod-cu-aroma-de-tutti-frutti-pentru-copii-250-ml-mollers-p323656", price: "~66.15 lei" },
@@ -183,7 +178,7 @@ const permanentItems: ShoppingItem[] = [
   {
     id: "perm-vigantol",
     name: "Vigantol Oil 0.5mg/ml picaturi orale (10ml, Merck)",
-    details: "2 picaturi/zi = 1000 UI vitamina D – pe reteta",
+    details: "2 picaturi/zi (500 UI/pic = 1000 UI/zi) – pe reteta, permanent",
     priceValue: 25.76,
     pharmacies: [
       { name: "Farmacia Tei", url: "https://comenzi.farmaciatei.ro/medicamente-cu-reteta/medicamente/vigantol-oil-0-5-mgml-picaturi-orale-solutie-10-ml-merck-p308699", price: "~25.76 lei" },
@@ -208,7 +203,7 @@ function CheckboxItem({
         checked={checked}
         onChange={onToggle}
         className="mt-1 h-4 w-4 shrink-0 cursor-pointer rounded"
-        style={{ accentColor: "#3b82f6" }}
+        style={{ accentColor: "#3a7ca5" }}
       />
       <div style={{ opacity: checked ? 0.5 : 1, textDecoration: checked ? "line-through" : "none" }}>
         <span className="font-medium" style={{ color: "#1a1a2e" }}>
@@ -269,10 +264,7 @@ export default function ShoppingList() {
   const phaseTotal = (items: ShoppingItem[]) =>
     items.reduce((sum, i) => sum + i.priceValue, 0);
   const permanentTotal = phaseTotal(permanentItems);
-  // Faza 1: Ser Efedrinat si Xilometazolina sunt alternative, scadem cea mai ieftina
-  const grandTotalNewPurchases = shoppingData.reduce((sum, p) => sum + phaseTotal(p.items), 0)
-    - 7.5 // scadem Ser Efedrinat (se alege UNA din alternative)
-    + permanentTotal;
+  const grandTotal = shoppingData.reduce((sum, p) => sum + phaseTotal(p.items), 0) + permanentTotal;
 
   return (
     <div className="mb-8">
@@ -289,7 +281,7 @@ export default function ShoppingList() {
             Lista de Cumparaturi
           </h2>
           <span className="text-xs" style={{ color: "#9ca3af" }}>
-            {checkedCount} din {allItems.length} cumparate &middot; cu preturi si linkuri farmacii
+            {checkedCount} din {allItems.length} cumparate &middot; total estimat ~{grandTotal.toFixed(0)} lei
           </span>
         </div>
         <svg
@@ -348,11 +340,6 @@ export default function ShoppingList() {
                     />
                   ))}
                 </ul>
-                {phase.phaseId === 1 && (
-                  <p className="mt-2 text-xs italic" style={{ color: "#9ca3af" }}>
-                    * Ser Efedrinat si Xilometazolina sunt alternative – se cumpara doar unul. Subtotal cu Ser Efedrinat: ~{(subtotal - 16).toFixed(0)} lei, cu Xilometazolina: ~{(subtotal - 7.5).toFixed(0)} lei.
-                  </p>
-                )}
               </div>
             );
           })}
@@ -362,14 +349,14 @@ export default function ShoppingList() {
             style={{
               backgroundColor: "#ffffff",
               border: "1px solid #e5e0d8",
-              borderLeft: "4px solid #f59e0b",
+              borderLeft: "4px solid #d97706",
             }}
           >
             <div className="mb-2 flex items-baseline justify-between">
-              <h3 className="text-sm font-bold" style={{ color: "#f59e0b" }}>
+              <h3 className="text-sm font-bold" style={{ color: "#d97706" }}>
                 Medicatie Orala + Suplimente (Pe tot parcursul)
               </h3>
-              <span className="text-xs font-bold" style={{ color: "#f59e0b" }}>
+              <span className="text-xs font-bold" style={{ color: "#d97706" }}>
                 ~{permanentTotal.toFixed(0)} lei
               </span>
             </div>
@@ -394,14 +381,14 @@ export default function ShoppingList() {
           >
             <div className="flex items-baseline justify-between">
               <span className="text-sm font-bold" style={{ color: "#1a1a2e" }}>
-                Total estimat tratament
+                Total estimat tratament (achizitie initiala)
               </span>
               <span className="text-lg font-bold" style={{ color: "#1a1a2e" }}>
-                ~{grandTotalNewPurchases.toFixed(0)} lei
+                ~{grandTotal.toFixed(0)} lei
               </span>
             </div>
             <p className="mt-1 text-xs" style={{ color: "#9ca3af" }}>
-              Achizitie initiala unica (medicamente nazale + suplimente). Inflamasol se recumpara lunar (~66.50 lei/cutie x 3 luni = ~200 lei).
+              Include toate medicamentele + prima luna de Inflamasol si suplimente. Inflamasol se recumpara lunar (~66.50 lei/cutie, total ~200 lei pe 3 luni).
             </p>
           </div>
         </div>
