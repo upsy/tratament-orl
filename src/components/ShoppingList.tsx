@@ -130,7 +130,7 @@ const shoppingData: PhaseShoppingList[] = [
   },
   {
     phaseId: 4,
-    phaseTitle: "Faza 4 — Intretinere cu Nasonex (Zilele 21-50+)",
+    phaseTitle: "Faza 4 — Intretinere cu Nasonex (Zilele 21-80)",
     color: "#7c3aed",
     items: [
       {

@@ -83,8 +83,8 @@ export const treatmentData: TreatmentData = {
   diagnosticCode: "J30.0 / J35.2",
   diagnosticFull:
     "Rino-adenoidita acuta, in remisie sub tratament alt serviciu ORL; cu posibila componenta alergica (mama alergie la Ambrosia, Fan, Iarba gazon, polenuri). Congestie cornete nazale inferioare. Sept nazal median. Rinofaringe — pachet mediu de vegetatii adenoide, neobturant. Timpanograma tip A bilateral — rezultat normal bilateral. Fara adenopatii cervicale palpabile.",
-  totalDays: 50,
-  totalDaysLabel: "~50+ zile",
+  totalDays: 80,
+  totalDaysLabel: "~80 zile",
   consultDate: "7 Martie 2026",
   phases: [
     {
@@ -222,7 +222,7 @@ export const treatmentData: TreatmentData = {
     {
       id: 4,
       title: "Faza 4 — Intretinere cu Nasonex",
-      dayRange: [21, 50],
+      dayRange: [21, 80],
       color: "#7c3aed",
       colorLight: "#f0ebfa",
       prescriptions: "Rp.1 + Rp.7 (Nasonex total 60 zile)",
