@@ -38,6 +38,7 @@ export interface Doctor {
   initials: string;
   color: string;
   colorLight: string;
+  medlifeUrl?: string;
   education: string;
   careerHighlights: string[];
   specializations: string[];
@@ -69,6 +70,7 @@ export const doctors: Doctor[] = [
     initials: "AA",
     color: "#059669",
     colorLight: "#e6f7f0",
+    medlifeUrl: "https://www.medlife.ro/medic-agache-armand-orl",
     education: "UMF Carol Davila, Bucuresti",
     experienceYears: "14+",
     experienceFocus: "ORL pediatric, chirurgie prin coblatie",
@@ -95,22 +97,23 @@ export const doctors: Doctor[] = [
     ],
     workplaces: [
       {
-        name: "Spitalul de Pediatrie MedLife",
-        role: "Medic Primar ORL Pediatrie",
-        schedule: "Program variabil",
-        price: "450 RON consultatie",
+        name: "Hyperclinica MedLife Medical Park",
+        role: "Medic Primar ORL",
+        schedule: "Lu 08-14, Ma 14-20, Mi 08-14, Vi 08-14",
+        price: "450 RON consultatie, 290 RON control",
         phone: "021.9646",
         isMain: true,
       },
       {
-        name: "Hyperclinica MedLife Medical Park",
-        schedule: "Program variabil",
-        price: "450 RON consultatie",
+        name: "Clinica de Pediatrie MedLife (Zagazului 7)",
+        role: "Medic Primar ORL Pediatrie",
+        schedule: "Mi 15-18, Jo 14-20",
+        price: "450 RON consultatie, 290 RON control",
         phone: "021.9646",
       },
       {
         name: "MedLife Polimed Cub Center, Targoviste",
-        schedule: "Consultatii periodice",
+        schedule: "Sa 09-12:30",
         price: "170-450 RON",
       },
     ],
@@ -261,6 +264,7 @@ export const doctors: Doctor[] = [
     initials: "SC",
     color: "#3a7ca5",
     colorLight: "#e8f1f8",
+    medlifeUrl: "https://www.medlife.ro/medic-soreanu-cristian-costin-orl-pediatrie-camera-de-garda",
     education: "UMF Carol Davila, Bucuresti",
     experienceYears: "10+",
     experienceFocus: "ORL pediatric, chirurgie LASER si endoscopica",
@@ -293,20 +297,20 @@ export const doctors: Doctor[] = [
         isMain: true,
       },
       {
-        name: "Spitalul de Pediatrie MedLife",
+        name: "Clinica de Pediatrie MedLife (Zagazului 7)",
         role: "Medic Primar ORL Pediatrie",
-        schedule: "Marti 16:00-20:00",
-        price: "410 RON consultatie",
+        schedule: "Ma 16:00-20:00",
+        price: "490 RON garda, 350 RON control",
         phone: "021.9646",
       },
       {
-        name: "Royal Hospital",
-        schedule: "Miercuri-Joi 16:00-20:00",
-        price: "410 RON consultatie",
+        name: "Royal Hospital (Splaiul Unirii 313A)",
+        schedule: "Mi-Jo 16:00-20:00",
+        price: "410 RON consultatie, 225 RON control",
         phone: "021.9095",
       },
       {
-        name: "Affidea Kids",
+        name: "Affidea Kids (C. Aricescu 8)",
         schedule: "Program variabil",
         price: "410 RON consultatie",
       },
@@ -395,6 +399,7 @@ export const doctors: Doctor[] = [
     initials: "RM",
     color: "#7c3aed",
     colorLight: "#f0ebfa",
+    medlifeUrl: "https://www.medlife.ro/medic-rizescu-manuela-elena-orl-pediatrie",
     education: "Facultatea de Pediatrie, UMF Carol Davila (promotia 1988)",
     experienceYears: "30+",
     experienceFocus: "exclusiv ORL pediatric",
@@ -428,9 +433,9 @@ export const doctors: Doctor[] = [
         isMain: true,
       },
       {
-        name: "Hyperclinica MedLife Berceni",
-        schedule: "Miercuri 16:00-20:00",
-        price: "450 RON consultatie, 300 RON control",
+        name: "Hyperclinica MedLife Berceni (Sos. Oltenitei 208)",
+        schedule: "Mi 16:00-20:00",
+        price: "450 RON consultatie, 250 RON fara programare",
         phone: "021.9646",
       },
     ],

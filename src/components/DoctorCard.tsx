@@ -96,6 +96,29 @@ export default function DoctorCard({
               {doctor.experienceYears} ani experienta
             </span>
           </div>
+          {doctor.medlifeUrl && (
+            <a
+              href={doctor.medlifeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-white transition-opacity hover:opacity-80 mt-1.5"
+              style={{ backgroundColor: "#e11d48" }}
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+              </svg>
+              Profil MedLife + Programare
+            </a>
+          )}
         </div>
       </div>
 
