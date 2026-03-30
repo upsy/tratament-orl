@@ -20,6 +20,7 @@ export default function DoctorCard({
   onNoteClear,
 }: DoctorCardProps) {
   const [careerOpen, setCareerOpen] = useState(false);
+  const [expandedSpec, setExpandedSpec] = useState<string | null>(null);
   const [localNote, setLocalNote] = useState(noteValue);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const careerRef = useRef<HTMLDivElement>(null);
@@ -188,28 +189,81 @@ export default function DoctorCard({
         </div>
       )}
 
-      {/* Specializations badges */}
+      {/* Specializations with descriptions */}
       <div className="mb-4">
         <span
           className="text-xs font-bold uppercase tracking-wider block mb-2"
           style={{ color: "#9ca3af" }}
         >
-          Competente
+          Competente{" "}
+          <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: "normal" }}>
+            (click pentru detalii)
+          </span>
         </span>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1.5 mb-2">
           {doctor.specializations.map((spec) => (
-            <span
-              key={spec}
-              className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+            <button
+              key={spec.name}
+              onClick={() =>
+                setExpandedSpec(expandedSpec === spec.name ? null : spec.name)
+              }
+              className="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium transition-all cursor-pointer"
               style={{
-                backgroundColor: doctor.colorLight,
-                color: doctor.color,
+                backgroundColor:
+                  expandedSpec === spec.name
+                    ? doctor.color
+                    : spec.relevantForTeodor
+                      ? doctor.colorLight
+                      : "#f3f4f6",
+                color:
+                  expandedSpec === spec.name
+                    ? "#ffffff"
+                    : spec.relevantForTeodor
+                      ? doctor.color
+                      : "#6b7280",
+                border: spec.relevantForTeodor
+                  ? `1px solid ${doctor.color}40`
+                  : "1px solid #e5e7eb",
               }}
             >
-              {spec}
-            </span>
+              {spec.relevantForTeodor && (
+                <span className="text-[10px]">T</span>
+              )}
+              {spec.name}
+            </button>
           ))}
         </div>
+        {expandedSpec && (
+          <div
+            className="rounded-xl p-4 text-sm leading-relaxed"
+            style={{
+              backgroundColor: doctor.colorLight,
+              border: `1px solid ${doctor.color}30`,
+              color: "#374151",
+            }}
+          >
+            <div className="flex items-start justify-between gap-2 mb-1">
+              <span className="font-semibold" style={{ color: doctor.color }}>
+                {expandedSpec}
+              </span>
+              {doctor.specializations.find((s) => s.name === expandedSpec)
+                ?.relevantForTeodor && (
+                <span
+                  className="flex-shrink-0 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold text-white"
+                  style={{ backgroundColor: "#f59e0b" }}
+                >
+                  relevant pt Teodor
+                </span>
+              )}
+            </div>
+            <p>
+              {
+                doctor.specializations.find((s) => s.name === expandedSpec)
+                  ?.description
+              }
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Workplaces */}

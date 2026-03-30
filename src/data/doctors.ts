@@ -30,6 +30,12 @@ export interface DoctorMedia {
   url?: string;
 }
 
+export interface Specialization {
+  name: string;
+  description: string;
+  relevantForTeodor?: boolean;
+}
+
 export interface Doctor {
   id: string;
   name: string;
@@ -41,7 +47,7 @@ export interface Doctor {
   medlifeUrl?: string;
   education: string;
   careerHighlights: string[];
-  specializations: string[];
+  specializations: Specialization[];
   experienceYears: string;
   experienceFocus: string;
   surgicalTechnique?: string;
@@ -86,14 +92,51 @@ export const doctors: Doctor[] = [
       "Consultatii periodice si la West Clinique Braila (din 2013)",
     ],
     specializations: [
-      "Coblatie pediatrica",
-      "Adenoidectomie",
-      "Amigdalotomie",
-      "Frenectomie linguala",
-      "Septoplastie",
-      "FESS (chirurgie endoscopica sinusuri)",
-      "Timpanometrie",
-      "Fibroscopie",
+      {
+        name: "Coblatie pediatrica",
+        description:
+          "Tehnica chirurgicala moderna care foloseste plasma la temperatura joasa (~60\u00b0C) pentru a indeparta tesutul. Spre deosebire de bisturiul clasic sau electrocauterul, coblatia nu arde tesutul, ci il dizolva molecular. Avantajul major: sange minimal, durere redusa, recuperare de 2-3x mai rapida. Ideala pentru copii.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Adenoidectomie",
+        description:
+          "Operatia de indepartare a vegetatiilor adenoide (\"polipi\"). Vegetatiile sunt tesut limfoid in spatele nasului care, cand se mareste excesiv, blocheaza respiratia nazala. Copilul respira pe gura, sforaie, poate face otite repetate. Se recomanda intre 3-5 ani. Relevanta directa pentru diagnosticul lui Teodor (rinoadenoidita).",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Amigdalotomie",
+        description:
+          "Reducerea partiala a amigdalelor (tonsilelor), fara a le indeparta complet. Diferita de amigdalectomie (indepartare totala). Se prefera la copii mici pentru a pastra partial functia imunitara a amigdalelor. Prin coblatie, recuperarea dureaza 3-5 zile vs 10-14 la metoda clasica.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Frenectomie linguala",
+        description:
+          "Procedura de eliberare a frenului lingual (\"tongue-tie\") - membrana de sub limba care, daca e prea scurta, limiteaza miscarea limbii. Afecteaza vorbirea si alimentatia. Prin coblatie dureaza 10-15 minute, copilul pleaca acasa in aceeasi zi.",
+      },
+      {
+        name: "Septoplastie",
+        description:
+          "Corectarea chirurgicala a deviatie de sept nazal. Septul e peretele de cartilaj si os care separa cele 2 nari. Cand e deviat, o nara e blocata permanent. Se face de obicei dupa 16-18 ani cand nasul termina de crescut.",
+      },
+      {
+        name: "FESS (chirurgie endoscopica sinusuri)",
+        description:
+          "Functional Endoscopic Sinus Surgery - operatie minim invaziva a sinusurilor prin nas, cu camera video. Se trateaza sinuzita cronica, polipi nazali, sau infectii care nu raspund la tratament medicamentos. Fara taieturi externe.",
+      },
+      {
+        name: "Timpanometrie",
+        description:
+          "Test non-invaziv care masoara miscarea timpanului si presiunea din urechea medie. Dureaza 2-3 secunde pe ureche, nu doare. Esential pentru diagnosticarea otitei cu lichid (\"otita seroasa\") - frecventa la copii cu adenoide marite.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Fibroscopie",
+        description:
+          "Examinare cu o camera flexibila subtire introdusa prin nas pentru a vizualiza cavitatile nazale, faringele si laringele. La copii se foloseste pentru a vedea dimensiunea adenoidelor si gradul de obstructie. Nu necesita anestezie.",
+        relevantForTeodor: true,
+      },
     ],
     workplaces: [
       {
@@ -280,13 +323,47 @@ export const doctors: Doctor[] = [
       "Lucreaza in paralel la MedLife Pediatrie, Royal Hospital si Affidea Kids",
     ],
     specializations: [
-      "Chirurgie LASER ORL",
-      "Chirurgie endoscopica ORL",
-      "Audiologie",
-      "Proceduri ELLMAN (radiofrecventa)",
-      "Implant cohlear (echipa)",
-      "Fibroscopie",
-      "Timpanometrie",
+      {
+        name: "Chirurgie LASER ORL",
+        description:
+          "Foloseste fascicul laser concentrat pentru taiere si vaporizare de tesut cu precizie extrema. Avantaje: sange minimal (laserul cauterizeaza vasele in timp real), precizie milimetrica, risc scazut de lezare a tesutului sanatos. Folosit pentru adenoide, amigdale, polipi, tumori benigne.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Chirurgie endoscopica ORL",
+        description:
+          "Operatii prin nas sau gura cu ajutorul endoscopului (camera miniaturala). Fara taieturi externe, vizualizare directa pe monitor. Se foloseste pentru sinusuri, adenoide, polipi nazali. Recuperare mai rapida decat chirurgia deschisa.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Audiologie",
+        description:
+          "Ramura medicinii care se ocupa de evaluarea si tratamentul problemelor de auz. Include: audiograma (testul de auz), timpanometrie, otoemisiuni acustice. Important la copii cu adenoide/otite repetate care pot duce la hipoacuzie (scaderea auzului).",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Proceduri ELLMAN (radiofrecventa)",
+        description:
+          "ELLMAN Surgitron - aparat care foloseste unde radio de frecventa inalta (4 MHz) pentru a taia si coagula tesutul. Similar coblatiei ca principiu, dar cu frecventa diferita. Avantaj: minim traumatic, recuperare rapida (la 2 ore copilul poate bea lichide). Gomoiu este printre putinele spitale de stat cu aceasta tehnologie.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Implant cohlear (echipa)",
+        description:
+          "Dispozitiv electronic implantat chirurgical care inlocuieste functia urechii interne la copii cu surditate severa/profunda. Operatie complexa de echipa (chirurg ORL + audiolog + logoped). Dr. Soreanu face parte din echipa de implant cohlear a Spitalului Gomoiu.",
+      },
+      {
+        name: "Fibroscopie",
+        description:
+          "Examinare cu o camera flexibila subtire introdusa prin nas pentru a vizualiza cavitatile nazale, faringele si laringele. La copii se foloseste pentru a vedea dimensiunea adenoidelor si gradul de obstructie. Nu necesita anestezie.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Timpanometrie",
+        description:
+          "Test non-invaziv care masoara miscarea timpanului si presiunea din urechea medie. Dureaza 2-3 secunde pe ureche, nu doare. Esential pentru diagnosticarea otitei cu lichid (\"otita seroasa\") - frecventa la copii cu adenoide marite.",
+        relevantForTeodor: true,
+      },
     ],
     workplaces: [
       {
@@ -417,12 +494,40 @@ export const doctors: Doctor[] = [
       "Membru: Societatea Romana de ORL, Societatea Romana de Rinologie, Societatea Romana de Pediatrie",
     ],
     specializations: [
-      "Adenoidectomie",
-      "Amigdalectomie",
-      "Bronchoscopie",
-      "Chirurgie endoscopica rinosinuzita",
-      "Otita medie la copii",
-      "Obstructie nazala / respiratie orala",
+      {
+        name: "Adenoidectomie",
+        description:
+          "Operatia de indepartare a vegetatiilor adenoide (\"polipi\"). Vegetatiile sunt tesut limfoid in spatele nasului care, cand se mareste excesiv, blocheaza respiratia nazala. Copilul respira pe gura, sforaie, poate face otite repetate. Dr. Rizescu recomanda operatia intre 3-5 ani.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Amigdalectomie",
+        description:
+          "Indepartarea completa a amigdalelor (tonsilelor palatine). Diferita de amigdalotomie (reducere partiala). Se indica cand amigdalele sunt atat de mari incat cauzeaza apnee de somn, dificultati la inghitire sau infectii repetate (>5-7/an). Recuperare: 10-14 zile, dieta moale.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Bronchoscopie",
+        description:
+          "Examinarea cailor respiratorii inferioare (trahee, bronhii) cu un tub flexibil sau rigid cu camera. La copii se face sub anestezie generala. Se foloseste diagnostic (corp strain inhalat, malformatii) sau terapeutic (extragere corp strain, dilatatii). Procedura specializata.",
+      },
+      {
+        name: "Chirurgie endoscopica rinosinuzita",
+        description:
+          "Operatie prin nas cu endoscop (camera miniaturala) pentru tratarea sinuzitei cronice care nu raspunde la medicamente. Se deschid orificiile sinusurilor blocate pentru a permite drenajul natural. Fara taieturi externe, recuperare 1-2 saptamani.",
+      },
+      {
+        name: "Otita medie la copii",
+        description:
+          "Infectia/inflamatia urechii medii - cea mai frecventa boala ORL la copii (80% fac cel putin un episod pana la 3 ani). Adenoidele marite sunt o cauza frecventa. Dr. Rizescu subliniaza: nu puneti picaturi fara consult, tratamentul incepe cu degajarea nasului.",
+        relevantForTeodor: true,
+      },
+      {
+        name: "Obstructie nazala / respiratie orala",
+        description:
+          "Blocarea respiratiei pe nas obliga copilul sa respire pe gura. Cauzat de adenoide marite, rinita alergica, deviatie de sept. Consecinte: deformarea maxilarului, aplatizarea toracelui, otite repetate, tulburari de somn. Dr. Rizescu: daca persista peste 3-5 ani, riscul de deformare creste semnificativ.",
+        relevantForTeodor: true,
+      },
     ],
     workplaces: [
       {
