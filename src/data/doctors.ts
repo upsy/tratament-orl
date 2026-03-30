@@ -683,6 +683,123 @@ export const doctorRecommendations: DoctorRecommendation[] = [
   },
 ];
 
+export interface SurgicalTechnique {
+  name: string;
+  temperature: string;
+  principle: string;
+  painLevel: string;
+  recoveryLiquids: string;
+  recoveryFull: string;
+  bleeding: string;
+  equipmentCost: string;
+  availablePublic: string;
+  usedBy: string;
+  bestFor: string;
+  rank: number;
+}
+
+export const surgicalTechniques: SurgicalTechnique[] = [
+  {
+    name: "Coblatie (plasma rece)",
+    temperature: "40-70\u00b0C",
+    principle:
+      "Plasma la temperatura joasa dizolva molecular tesutul, fara a-l arde. Penetrare sub 1mm in tesutul vecin.",
+    painLevel: "Cea mai mica",
+    recoveryLiquids: "2-4 ore",
+    recoveryFull: "3-5 zile",
+    bleeding: "Minimala",
+    equipmentCost: "Scump",
+    availablePublic: "Rar la stat",
+    usedBy: "Dr. Agache (MedLife)",
+    bestFor:
+      "Gold-standard actual pentru adenoidectomie/amigdalotomie pediatrica. Cel mai bland pentru copii, durere cu 30-50% mai mica fata de celelalte metode.",
+    rank: 1,
+  },
+  {
+    name: "ELLMAN Surgitron (radiofrecventa 4MHz)",
+    temperature: "70-200\u00b0C",
+    principle:
+      "Unde radio de frecventa inalta (4 MHz) fac celulele sa vibreze si sa se evapore. Ca un cutit invizibil care taie fara presiune.",
+    painLevel: "Mica-moderata",
+    recoveryLiquids: "~2 ore",
+    recoveryFull: "5-7 zile",
+    bleeding: "Minimala",
+    equipmentCost: "Mediu",
+    availablePublic: "Da (Gomoiu - gratuit cu trimitere CNAS)",
+    usedBy: "Dr. Soreanu (Spitalul Gomoiu)",
+    bestFor:
+      "Cea mai buna optiune gratuita. Gomoiu e printre putinele spitale de stat cu aceasta tehnologie. Recuperare rapida: la 2h copilul bea lichide.",
+    rank: 2,
+  },
+  {
+    name: "LASER chirurgical",
+    temperature: "300-1000\u00b0C",
+    principle:
+      "Fascicul de lumina concentrat vaporizaza si taie tesutul. Cauterizeaza vasele in timp real. Precizie milimetrica.",
+    painLevel: "Mica",
+    recoveryLiquids: "4-6 ore",
+    recoveryFull: "5-7 zile",
+    bleeding: "Minimala",
+    equipmentCost: "Foarte scump",
+    availablePublic: "Rar la stat",
+    usedBy: "Dr. Soreanu (privat)",
+    bestFor:
+      "Precizie maxima langa structuri delicate. Excelent dar fractional mai agresiv termic decat coblatia.",
+    rank: 3,
+  },
+  {
+    name: "Electrocauter (diatermie)",
+    temperature: "400-600\u00b0C",
+    principle:
+      "Curent electric de frecventa inalta incalzeste si arde tesutul. Metoda traditionala, larg disponibila.",
+    painLevel: "Moderata-mare",
+    recoveryLiquids: "4-6 ore",
+    recoveryFull: "10-14 zile",
+    bleeding: "Mica",
+    equipmentCost: "Ieftin",
+    availablePublic: "Da, in toate spitalele",
+    usedBy: "Majoritatea spitalelor de stat",
+    bestFor:
+      "Metoda clasica, larg disponibila si ieftina. Durere mai mare si recuperare mai lenta decat tehnicile moderne. In scadere de popularitate.",
+    rank: 4,
+  },
+  {
+    name: "Microdebridare (shaver)",
+    temperature: "Fara caldura",
+    principle:
+      "Lama rotativa miniaturala \"rade\" tesutul adenoid sub control endoscopic. Nu genereaza caldura. Aspiratie simultana.",
+    painLevel: "Mica-moderata",
+    recoveryLiquids: "2-4 ore",
+    recoveryFull: "5-7 zile",
+    bleeding: "Moderata (necesita tamponament)",
+    equipmentCost: "Mediu-scump",
+    availablePublic: "Unele spitale",
+    usedBy: "Diverse clinici",
+    bestFor:
+      "Alternativa fara caldura, buna vizualizare endoscopica. Sangerarea poate fi mai mare decat la coblatie/LASER. Folosita frecvent in combinatie cu alte tehnici.",
+    rank: 5,
+  },
+  {
+    name: "Chirurgie clasica (chiuretaj)",
+    temperature: "Fara caldura",
+    principle:
+      "Indepartare mecanica cu chiureta (instrument in forma de lingurita). Cea mai veche metoda, fara echipament special.",
+    painLevel: "Moderata-mare",
+    recoveryLiquids: "4-6 ore",
+    recoveryFull: "7-14 zile",
+    bleeding: "Moderata-mare",
+    equipmentCost: "Minim",
+    availablePublic: "Da, in toate spitalele",
+    usedBy: "Spitale mici, zone rurale",
+    bestFor:
+      "Tehnica de rezerva cand nu e disponibil echipament modern. Sangerare mai mare, recuperare mai lenta. Nu se mai recomanda ca prima optiune.",
+    rank: 6,
+  },
+];
+
+export const techniqueConclusion =
+  "Pentru Teodor (4 ani 9 luni, rinoadenoidita cu componenta alergica): daca bugetul nu e o problema, coblatia la Dr. Agache (~5.210 RON) ofera cea mai blanda experienta. Daca se prefera sistemul de stat, ELLMAN la Gomoiu cu Dr. Soreanu (gratuit cu trimitere CNAS) e o alternativa excelenta cu recuperare similara.";
+
 export const researchDate = "30 martie 2026";
 export const researchDisclaimer =
   "Informatiile au fost colectate din surse publice (site-uri medicale, forumuri de parinti, articole de presa). Recenziile sunt citate din sursele originale cu link-uri. Preturile si programele pot suferi modificari - verificati direct la clinica inainte de programare.";

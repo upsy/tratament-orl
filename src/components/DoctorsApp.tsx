@@ -5,6 +5,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { doctors, researchDate, researchDisclaimer } from "../data/doctors";
 import DoctorCard from "./DoctorCard";
 import DoctorRecommendation from "./DoctorRecommendation";
+import TechniqueComparison from "./TechniqueComparison";
 
 export default function DoctorsApp() {
   const [notes, setNotes] = useLocalStorage<Record<string, string>>(
@@ -89,6 +90,9 @@ export default function DoctorsApp() {
 
       {/* Recommendation - at the top for quick reference */}
       <DoctorRecommendation />
+
+      {/* Surgical techniques comparison */}
+      <TechniqueComparison />
 
       {/* Doctor cards */}
       {doctors.map((doctor, i) => (
